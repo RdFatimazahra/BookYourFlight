@@ -1,4 +1,4 @@
-package web;
+/**package web;
 
 import hibernate.dao.HibernateDAO;
 import hibernate.dao.HibernateDAOImpl;
@@ -34,4 +34,4 @@ public class save extends HttpServlet {
         }
         System.out.println("e/////////////////////////:");
     }
-}
+}**/

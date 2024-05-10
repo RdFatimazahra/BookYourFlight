@@ -1,75 +1,89 @@
 package metier;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "vol")
 public class Vol {
-    @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
-    private Integer id;
-    private String Duree;
-    private String HeureDepart;
-    private String HeureArrive;
-    private String VilleDepart;
-    private String VilleArrive;
 
-    public Vol(Integer id, String duree, String heureDepart, String heureArrive, String villeDepart, String villeArrive) {
-        this.id = id;
-        Duree = duree;
-        HeureDepart = heureDepart;
-        HeureArrive = heureArrive;
-        VilleDepart = villeDepart;
-        VilleArrive = villeArrive;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(name = "numero")
+    private String numero;
+
+    @Column(name = "date_depart")
+    private String dateDepart;
+
+    @Column(name = "ville_depart")
+    private String villeDepart;
+
+    @Column(name = "ville_arrivee")
+    private String villeArrivee;
+
+    @Column(name = "duree")
+    private int duree; // Durée en minutes
+
+    // Constructeur par défaut
+    public Vol() {
     }
 
-    public Integer getId() {
+    // Constructeur avec numéro, date de départ, villes de départ et d'arrivée, et durée
+    public Vol(String numero, String dateDepart, String villeDepart, String villeArrivee, int duree) {
+        this.numero = numero;
+        this.dateDepart = dateDepart;
+        this.villeDepart = villeDepart;
+        this.villeArrivee = villeArrivee;
+        this.duree = duree;
+    }
+
+    // Getters et setters
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public String getDuree() {
-        return Duree;
+    public String getNumero() {
+        return numero;
     }
 
-    public void setDuree(String duree) {
-        Duree = duree;
+    public void setNumero(String numero) {
+        this.numero = numero;
     }
 
-    public String getHeureDepart() {
-        return HeureDepart;
+    public String getDateDepart() {
+        return dateDepart;
     }
 
-    public void setHeureDepart(String heureDepart) {
-        HeureDepart = heureDepart;
-    }
-
-    public String getHeureArrive() {
-        return HeureArrive;
-    }
-
-    public void setHeureArrive(String heureArrive) {
-        HeureArrive = heureArrive;
+    public void setDateDepart(String dateDepart) {
+        this.dateDepart = dateDepart;
     }
 
     public String getVilleDepart() {
-        return VilleDepart;
+        return villeDepart;
     }
 
     public void setVilleDepart(String villeDepart) {
-        VilleDepart = villeDepart;
+        this.villeDepart = villeDepart;
     }
 
-    public String getVilleArrive() {
-        return VilleArrive;
+    public String getVilleArrivee() {
+        return villeArrivee;
     }
 
-    public void setVilleArrive(String villeArrive) {
-        VilleArrive = villeArrive;
+    public void setVilleArrivee(String villeArrivee) {
+        this.villeArrivee = villeArrivee;
+    }
+
+    public int getDuree() {
+        return duree;
+    }
+
+    public void setDuree(int duree) {
+        this.duree = duree;
     }
 }
